@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TaskAPI.Services.Interfaces;
+using TaskAPI.Services.Services;
 
 namespace TaskAPI
 {
@@ -32,6 +34,8 @@ namespace TaskAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TaskAPI", Version = "v1" });
             });
+
+            services.AddScoped<ITodoRepository, TodoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
